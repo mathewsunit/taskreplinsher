@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class UserServicesImpl implements UserServices {
+public class UserServiceImpl implements UserService {
 
     public User createUser(String name) {
         return new User(name);

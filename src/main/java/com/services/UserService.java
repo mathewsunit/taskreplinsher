@@ -5,7 +5,7 @@ import com.classes.*;
 import java.util.List;
 import java.util.Map;
 
-public interface UserServices {
+public interface UserService {
 
     public User createUser(String name);
 
