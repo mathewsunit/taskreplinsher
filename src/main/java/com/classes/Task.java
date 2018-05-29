@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Task implements Taskable, Comparable<Task> {
 
+    String name;
     User assigned;
     User assignee;
     Status status;
@@ -14,6 +15,26 @@ public class Task implements Taskable, Comparable<Task> {
     Date begin;
     Date end;
 
+
+    public Task(String name) {
+        this.name = name;
+    }
+
+    public Task(Task task) {
+        this.name = task.name;
+        this.assignee = task.getAssignee();
+        this.assigned = task.getAssigned();
+        this.timeEstimate = task.getTimeEstimate();
+        this.priority = task.getPriority();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public User getAssigned() {
         return assigned;
@@ -40,7 +61,7 @@ public class Task implements Taskable, Comparable<Task> {
     }
 
     public long getTimeElapsed(Date date) {
-        return getBegin().getTime()- date.getTime();
+        return getBegin().getTime() - date.getTime();
     }
 
     public Date getBegin() {
@@ -55,17 +76,9 @@ public class Task implements Taskable, Comparable<Task> {
         this.end = end;
     }
 
-    public Task(User user, Date date) {
-        this.assignee = user;
-        this.begin = date;
-    }
-
-    public Task(Task task) {
-        this.setAssignee(task.getAssignee());
-        this.setAssigned(task.getAssigned());
-        this.setTimeEstimate(task.getTimeEstimate());
-        this.setPriority(task.getPriority());
+    public void begin() {
         this.begin = new Date();
+        this.status = Status.STARTED;
     }
 
     public Status getStatus() {
@@ -84,13 +97,12 @@ public class Task implements Taskable, Comparable<Task> {
         return feedback;
     }
 
-    public void appendNotes(String append) {
-        notes.concat(append) ;
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 
-    public void setFeedback(String feedback) {
-        notes.concat("\n******Changing Feedback******\n"+this.feedback);
-        this.feedback = feedback;
+    public void appendNotes(String append) {
+        notes.concat(append);
     }
 
     public Priority getPriority() {

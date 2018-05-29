@@ -1,9 +1,8 @@
 package com.services;
 
-import com.classes.*;
-
-import java.util.List;
-import java.util.Map;
+import com.classes.Priority;
+import com.classes.Task;
+import com.classes.User;
 
 public interface UserService {
 
@@ -18,11 +17,5 @@ public interface UserService {
     public void assignTaskUsingTemplate(User assignee, User assigned, String taskName, Priority priority);
 
     public void createNewTemplate(User assignee, String taskname, Task t);
-
-    public List<Task> viewAssignedTasks(User assignee);
-
-    public List<Task> viewWatchingTasks(User assignee);
-
-    public Map<String, TemplateTask> viewTaskTemplates(User assignee);
 
 }

@@ -20,9 +20,9 @@ public interface Taskable {
 
     public String getFeedback();
 
-    public void appendNotes(String append);
-
     public void setFeedback(String feedback);
+
+    public void appendNotes(String append);
 
     public Priority getPriority();
 
@@ -36,9 +36,9 @@ public interface Taskable {
 
     public Date getEnd();
 
-    public Date getBegin();
-
     public void setEnd(Date end);
+
+    public Date getBegin();
 
     public void start(Date begin);
 

@@ -11,6 +11,18 @@ import java.util.Map;
 
 public class UserServiceImpl implements UserService {
 
+    private static UserServiceImpl service;
+
+    private UserServiceImpl() {
+    }
+
+    public static synchronized UserServiceImpl getInstance() {
+        if (service == null) {
+            service = new UserServiceImpl();
+        }
+        return service;
+    }
+
     public User createUser(String name) {
         return new User(name);
     }
@@ -36,12 +48,13 @@ public class UserServiceImpl implements UserService {
         Task task = assignee.getFromTemplate(taskName);
         task.setAssigned(assigned);
         task.setAssignee(assignee);
+        task.setPriority(priority);
         assigned.addAssigned(task);
-        assignee.addAssigned(task);
+        assignee.addWatching(task);
     }
 
     public void createNewTemplate(User assignee, String taskname, Task t) {
-        assignee.addTemplate(taskname,t);
+        assignee.addTemplate(taskname, t);
     }
 
     public List<Task> viewAssignedTasks(User assigned) {

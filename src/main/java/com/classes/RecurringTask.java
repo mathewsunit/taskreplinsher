@@ -5,8 +5,10 @@ public class RecurringTask extends CustomTask {
     boolean enabled;
     long frequency;
 
-    public RecurringTask(Task task, long frequency) {
+    public RecurringTask(Task task, User assigned, User assignee, long frequency) {
         super(task);
+        super.setAssigned(assigned);
+        super.setAssignee(assignee);
         this.frequency = frequency;
     }
 

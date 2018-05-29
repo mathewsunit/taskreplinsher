@@ -42,12 +42,12 @@ public class CustomTask implements Taskable {
         return task.getFeedback();
     }
 
-    public void appendNotes(String append) {
-        task.appendNotes(append);
-    }
-
     public void setFeedback(String feedback) {
         task.setFeedback(feedback);
+    }
+
+    public void appendNotes(String append) {
+        task.appendNotes(append);
     }
 
     public Priority getPriority() {
@@ -74,12 +74,16 @@ public class CustomTask implements Taskable {
         return task.getEnd();
     }
 
+    public void setEnd(Date end) {
+        task.setEnd(end);
+    }
+
     public Date getBegin() {
         return task.getBegin();
     }
 
-    public void setEnd(Date end) {
-        task.setEnd(end);
+    public String getName() {
+        return task.getName();
     }
 
     public void start(Date begin) {
