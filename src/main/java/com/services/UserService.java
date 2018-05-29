@@ -4,6 +4,8 @@ import com.classes.Priority;
 import com.classes.Task;
 import com.classes.User;
 
+import java.util.List;
+
 public interface UserService {
 
     public User createUser(String name);

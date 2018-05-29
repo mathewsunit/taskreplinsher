@@ -114,7 +114,12 @@ public class Task implements Taskable, Comparable<Task> {
     }
 
     public int compareTo(Task task) {
-        return 0;
+        if(status==task.status){
+            long val1 = priority.ordinal() / timeEstimate;
+            long val2 = task.getPriority().ordinal() / task.getTimeEstimate();
+            return val1==val2?0:val1>val2?1:-1;
+        }else if(status==Status.COMPLETED) return 1;
+        else return -1;
     }
 
     public void start(Date begin) {

@@ -25,6 +25,7 @@ public class User {
     }
 
     public List<Task> getWatching() {
+        Collections.sort(watching);
         return Collections.unmodifiableList(watching);
     }
 
@@ -45,6 +46,7 @@ public class User {
     }
 
     public List<Task> getAssigned() {
+        Collections.sort(watching);
         return Collections.unmodifiableList(assigned);
     }
 
